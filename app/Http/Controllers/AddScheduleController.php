@@ -29,7 +29,7 @@ class AddScheduleController extends Controller
         $a=new schedule;
         $a->faculty_id = $request->facultyid;
          $a->location = $request->location;
-         $a->avaialable_days = $request->availabledays;
+         $a->available_days = $request->availabledays;
           
           $a->available_time = $request->availabletiming;
           

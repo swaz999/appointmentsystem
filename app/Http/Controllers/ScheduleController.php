@@ -18,7 +18,7 @@ class ScheduleController extends Controller
     public function index()
     {
         
-    $availabilitylist= DB::table('schedule')->get();
+    $availabilitylist= DB::table('schedules')->get();
 
         return view('auth.availability')->with('availlist',$availabilitylist);
     }

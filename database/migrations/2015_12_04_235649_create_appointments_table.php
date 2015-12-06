@@ -29,6 +29,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('appointments');
     }
 }

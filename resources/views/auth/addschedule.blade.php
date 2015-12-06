@@ -14,7 +14,7 @@ Available Days: <label><input type="checkbox" name="availabledays">Monday</label
 	      <label><input type="checkbox"> Satur</label>
 	       <label><input type="checkbox"> Sun</label><br><br>
 	       Available Timing : 
-	       <input type="text" name="availablatiming" value="Enter Timing"/><br><br>
+	       <input type="text" name="availabletiming" value="Enter Timing"/><br><br>
 	       <input type="submit" name="addsubmit" value="ADD"/>
 
 </form>

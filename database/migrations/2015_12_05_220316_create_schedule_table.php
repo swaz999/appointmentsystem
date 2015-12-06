@@ -12,18 +12,14 @@ class CreateScheduleTable extends Migration
      */
     public function up()
     {
-        Schema::create('schedule',function (Blueprint $table){
+        Schema::create('schedules',function (Blueprint $table){
           $table->increments('id');
-          // $table->Integer('faculty_id');
-          // $table->foreign('faculty_id')->references('id')->on('schedule');
-          $table->string('avaialable_days');
+          $table->string('available_days');
           $table->string('available_time');
           $table->string('location');
- $table->integer('faculty_id')->unsigned();
-          $table->foreign('faculty_id')
-      ->references('user_id')->on('users')
-       $table->timestamps();
-      ->onDelete('cascade');
+          $table->integer('faculty_id');
+          $table->timestamps();
+      
   });
 
     }
@@ -35,6 +31,6 @@ class CreateScheduleTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('schedules');
     }
 }
