@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
+use App\Schedule;
 
 class ScheduleController extends Controller
 {
@@ -17,10 +19,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        
-    $availabilitylist= DB::table('schedules')->get();
+        $faculty_id=Auth::user()->id;
+        $schedulelist= Schedule::where('faculty_id','=',$faculty_id)->get();
+         dd($schedulelist); 
 
-        return view('auth.availability')->with('availlist',$availabilitylist);
+        return view('auth.availability')->with('availlist',$schedulelist);
     }
 
     /**

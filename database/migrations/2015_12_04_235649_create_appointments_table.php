@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +19,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('location');
             $table->string('date');
             $table->string('time');
-            
+            $table->timestamps();
         });
     }
 

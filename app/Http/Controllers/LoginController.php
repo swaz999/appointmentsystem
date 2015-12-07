@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use Input;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -25,6 +27,29 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function authenticate()
+    {
+
+    $data = Input::All();
+    
+    echo "<br>";
+
+    $auth_test=Auth::attempt(['email'=>$data['email'],'password'=>$data['password']]);
+    
+      if($auth_test)
+    {
+        echo "Authentication Successfull<br>";
+
+        // $u=Auth::user();
+        // echo $u->name;
+        return redirect('faculty_home');
+    }
+    else
+        echo "Auth Failed";
+    return view ('auth.login');
+    
+}
+
     public function create()
     {
         
@@ -40,13 +65,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-         $u=new User;
-        $u->name = $request->name;
-         $u->email= $request->email;
-          $u->password = bcrypt('$request->password');
-        
-          $u->save();
-          return view('auth.login');
+         
     }
 
     /**

@@ -11,17 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/login','LoginController1@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/login','LoginController@index');
-// Route::post('/login','LoginController@store');
-Route::get('/facultyhome',function(){
-	return view('auth.faculty_home');
-});
+Route::get('/','LoginController@index');
+Route::post('/login','LoginController@authenticate');
+// Route::get('/facultyhome',function(){
+// 	return view('auth.faculty_home');
+// });
 // Route::post('/faculty_home','Auth\AuthController@showLogin');
-Route::post('/faculty_home','AppointmentsController@index');
+Route::get('/faculty_home','AppointmentsController@index');
 Route::get('/availability','ScheduleController@index');
 Route::get('/appointments','AppointmentsController@index');
 Route::get('/addschedule',function(){

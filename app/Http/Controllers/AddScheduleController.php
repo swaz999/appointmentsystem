@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\schedule;
+use Auth;
 class AddScheduleController extends Controller
 {
     /**
@@ -27,16 +28,14 @@ class AddScheduleController extends Controller
     public function create(Request $request)
     {
         $a=new schedule;
-        $a->faculty_id = $request->facultyid;
+        $a->faculty_id = Auth::user()->id;
          $a->location = $request->location;
          $a->available_days = $request->availabledays;
           
           $a->available_time = $request->availabletiming;
-          
-          
-        
+        // dd($a);  
         $a->save();
-          return view('auth.availability');
+          return redirect('availability');
     }
 
     /**

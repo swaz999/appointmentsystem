@@ -4,7 +4,7 @@
 </head>
 <body>
 <form action="addschedule" method="post">
-	Faculty ID: <input type="text" name="facultyid" placeholder="Enter Faculty ID"/><br><br>
+	
 		Location: <input type="text" name="location" placeholder="Enter Location"/><br><br>
 Available Days: <label><input type="checkbox" name="availabledays">Monday</label>
 	  <label><input type="checkbox"> Tues</label>
